@@ -1,6 +1,11 @@
 {
-    "navbar": {
-        "restaurant": "Restoran",
-        "cafe": "Kafe"
-    }
+    "placeTypes": {
+        "food": "Yemek",
+        "favorites": "Favoriler",
+        "cafe": "Kafe",
+        "cinema": "Sinema",
+        "map": "Harita",
+        "searchOnMap": "Haritada Ara"
+    },
+    "search": "Mekan Ara"
 }

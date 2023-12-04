@@ -1,6 +1,6 @@
-import 'package:bootcamp_project/product/constants/application.dart';
-import 'package:bootcamp_project/product/enum/language_enum.dart';
-import 'package:bootcamp_project/product/widgets/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:bootcamp_project/product/feature/constants/application.dart';
+import 'package:bootcamp_project/product/feature/enum/language_enum.dart';
+import 'package:bootcamp_project/product/widgets/bottom_nav_bar.dart';
 import 'package:bootcamp_project/theme/theme_bottom_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -30,8 +30,9 @@ class MyApp extends StatelessWidget {
         locale: context.locale,
         debugShowCheckedModeBanner: false,
         scrollBehavior: const MaterialScrollBehavior().copyWith(overscroll: false),
-        title: 'Google API App',
+        title: 'Pocket Place',
         theme: ThemeData(
+          drawerTheme: const DrawerThemeData(surfaceTintColor: Colors.black),
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           appBarTheme: _appBarTheme(),
@@ -45,10 +46,9 @@ class MyApp extends StatelessWidget {
 
   AppBarTheme _appBarTheme() {
     return const AppBarTheme(
-        backgroundColor: Colors.blue,
-        // backgroundColor: Colors.grey[900],
-        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: Color.fromARGB(255, 244, 206, 219),
+        iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
-        titleTextStyle: TextStyle(color: Colors.white, fontSize: 24));
+        titleTextStyle: TextStyle(color: Colors.black, fontSize: 24));
   }
 }

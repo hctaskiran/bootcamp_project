@@ -10,8 +10,9 @@ class CafeView extends StatefulWidget {
 class _CafeViewState extends State<CafeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-    );
+    return const Scaffold(
+        body: Column(
+      children: [],
+    ));
   }
 }

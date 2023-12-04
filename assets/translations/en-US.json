@@ -1,6 +1,11 @@
 {
-    "navbar": {
-        "restaurant": "Restaurant",
-        "cafe": "Cafe"
-    }
+    "placeTypes": {
+        "food": "Food",
+        "favorites": "Favorites",
+        "cafe": "Cafe",
+        "cinema": "Cinema",
+        "map": "Map",
+        "searchOnMap": "Search on Map"
+    },
+    "search": "Search For a Place"
 }

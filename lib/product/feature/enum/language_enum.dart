@@ -12,8 +12,7 @@ enum Languages {
   const Languages({required this.language, this.country});
 
   Locale toLocale() => Locale(language, country);
-  void setLocale(BuildContext context) =>
-      context.mounted ? context.setLocale(toLocale()) : null;
+  void setLocale(BuildContext context) => context.mounted ? context.setLocale(toLocale()) : null;
 }
 
 extension LanguageListExtensions on Iterable<Languages> {

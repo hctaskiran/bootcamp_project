@@ -10,8 +10,9 @@ class CinemaView extends StatefulWidget {
 class _CinemaViewState extends State<CinemaView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-    );
+    return const Scaffold(
+        body: Column(
+      children: [],
+    ));
   }
 }

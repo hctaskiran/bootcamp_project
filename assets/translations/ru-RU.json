@@ -1,6 +1,11 @@
 {
-    "navbar": {
-        "restaurant": "Ресторан",
-        "cafe": "Кафе"
-    }
+    "placeTypes": {
+        "food": "Еда",
+        "favorites": "Избранное",
+        "cafe": "Кафе",
+        "cinema": "Кино",
+        "map": "Карта",
+        "searchOnMap": "Поиск на Карте"
+    },
+    "search": "Поиск по Названию"
 }
