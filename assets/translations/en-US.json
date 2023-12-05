@@ -1,4 +1,8 @@
 {
+    "drawer": {
+        "profile": "Profile",
+        "aboutApp": "About the App"
+    },
     "placeTypes": {
         "food": "Food",
         "favorites": "Favorites",
@@ -7,5 +11,12 @@
         "map": "Map",
         "searchOnMap": "Search on Map"
     },
-    "search": "Search For a Place"
+    "search": "Search For a Place",
+    "profileView": {
+        "userName": "Name",
+        "userPhone": "Phone",
+        "photoCamera": "Take a Picture",
+        "photoGallery": "Choose from Gallery",
+        "removePhoto": "Remove Photo"
+    }
 }

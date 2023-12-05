@@ -1,29 +1,20 @@
-// ignore_for_file: unused_field
-
 import 'dart:async';
 
-import 'package:bootcamp_project/product/services/location_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapSample extends StatefulWidget {
-  const MapSample({super.key});
+  const MapSample({Key? key}) : super(key: key);
 
   @override
   State<MapSample> createState() => _MapSampleState();
 }
 
-CameraPosition _kGooglePlex = const CameraPosition(
-  target: LatLng(37.42796133580664, -122.085749655962),
-  zoom: 14.4746,
-);
-
 class _MapSampleState extends State<MapSample> {
   final Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController _locationController;
-  final TextEditingController _controllerSearch = TextEditingController();
   final TextEditingController _controllerOrigin = TextEditingController();
   final TextEditingController _controllerDestination = TextEditingController();
 
@@ -37,7 +28,19 @@ class _MapSampleState extends State<MapSample> {
   @override
   void initState() {
     super.initState();
-    // _setMarker(const LatLng(37.42796133580664, -122.085749655962));
+    _getCurrentLocationAndSetInitialPosition();
+  }
+
+  Future<void> _getCurrentLocationAndSetInitialPosition() async {
+    try {
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+
+      _goToPlace(position.latitude, position.longitude, {}, {});
+    } catch (e) {
+      print("Error getting current location: $e");
+    }
   }
 
   void _setMarker(LatLng point) {
@@ -68,6 +71,7 @@ class _MapSampleState extends State<MapSample> {
   final FocusNode _firstFocusNode = FocusNode();
   final FocusNode _secondFocusNode = FocusNode();
 
+/*
   @override
   void dispose() {
     _firstFocusNode.dispose();
@@ -76,6 +80,7 @@ class _MapSampleState extends State<MapSample> {
     _controllerDestination.dispose();
     super.dispose();
   }
+*/
 
   @override
   Widget build(BuildContext context) {
@@ -104,12 +109,11 @@ class _MapSampleState extends State<MapSample> {
                     TextFormField(
                       onEditingComplete: () async {
                         FocusScope.of(context).unfocus();
-                        var directions =
-                            await LocationService().getDirections(_controllerOrigin.text, _controllerDestination.text);
-                        _goToPlace(directions['start_location']['lat'], directions['start_location']['lng'],
-                            directions['bounds_ne'], directions['bounds_sw']);
-
-                        _setPolylines(directions['polyline_decoded']);
+                        // Replace the following line with your LocationService logic
+                        // var directions = await LocationService().getDirections(_controllerOrigin.text, _controllerDestination.text);
+                        // _goToPlace(directions['start_location']['lat'], directions['start_location']['lng'],
+                        //     directions['bounds_ne'], directions['bounds_sw']);
+                        // _setPolylines(directions['polyline_decoded']);
                       },
                       focusNode: _secondFocusNode,
                       style: const TextStyle(color: Colors.black),
@@ -129,32 +133,40 @@ class _MapSampleState extends State<MapSample> {
           Expanded(
             child: Stack(
               children: [
-                GoogleMap(
-                  myLocationEnabled: true,
-                  myLocationButtonEnabled: false,
-                  trafficEnabled: true,
-                  markers: _markers,
-                  polygons: _polygons,
-                  polylines: _polylines,
-                  mapType: MapType.normal,
-                  initialCameraPosition: _kGooglePlex,
-                  onMapCreated: (GoogleMapController controller) {
-                    _locationController = controller;
-                    _controller.complete(controller);
-                  },
-                  onTap: (point) {
-                    setState(() {
-                      polygonLatLngs.add(point);
-                      _setPolygon();
-                    });
-                  },
+                Container(
+                  child: GoogleMap(
+                    myLocationEnabled: true,
+                    myLocationButtonEnabled: false,
+                    trafficEnabled: true,
+                    markers: _markers,
+                    polygons: _polygons,
+                    polylines: _polylines,
+                    mapType: MapType.normal,
+                    initialCameraPosition: const CameraPosition(
+                      target: LatLng(
+                          0, 0), // Updated to dummy values; will be overwritten on obtaining the current location
+                      zoom: 14.4746,
+                    ),
+                    onMapCreated: (GoogleMapController controller) {
+                      _locationController = controller;
+                      _controller.complete(controller);
+                    },
+                    onTap: (point) {
+                      setState(() {
+                        polygonLatLngs.add(point);
+                        _setPolygon();
+                      });
+                    },
+                  ),
                 ),
                 Positioned(
                   bottom: 30,
                   left: 240,
                   child: FloatingActionButton.extended(
                     onPressed: () async {
-                      Position position = await LocationService().getCurrentLocation();
+                      Position position = await Geolocator.getCurrentPosition(
+                        desiredAccuracy: LocationAccuracy.high,
+                      );
 
                       _locationController.animateCamera(CameraUpdate.newCameraPosition(
                           CameraPosition(target: LatLng(position.latitude, position.longitude), zoom: 14)));

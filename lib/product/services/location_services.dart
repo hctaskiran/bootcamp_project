@@ -82,6 +82,18 @@ class LocationService {
     return position;
   }
 
-  
+  // Future<void> getCurrentLocation() async {
+  //   try {
+  //     var position = await Geolocator.getCurrentPosition(
+  //       desiredAccuracy: LocationAccuracy.high,
+  //     );
 
+  //     setState(() {
+  //       lat = position.latitude;
+  //       long = position.longitude;
+  //     });
+  //   } catch (e) {
+  //     print('Exception: $e');
+  //   }
+  // }
 }

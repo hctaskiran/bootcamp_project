@@ -1,4 +1,8 @@
 {
+    "drawer": {
+        "profile": "Профиль",
+        "aboutApp": "О Приложении"
+    },
     "placeTypes": {
         "food": "Еда",
         "favorites": "Избранное",
@@ -7,5 +11,12 @@
         "map": "Карта",
         "searchOnMap": "Поиск на Карте"
     },
-    "search": "Поиск по Названию"
+    "search": "Поиск по Названию",
+    "profileView": {
+        "userName": "Имя Пользователя",
+        "userPhone": "Номер Телефона",
+        "photoCamera": "Снять Фото",
+        "photoGallery": "Выбрать Фото",
+        "removePhoto": "Удалить Фото"
+    }
 }

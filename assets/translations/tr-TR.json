@@ -1,4 +1,8 @@
 {
+    "drawer": {
+        "profile": "Profil",
+        "aboutApp": "Uygulama Hakkında"
+    },
     "placeTypes": {
         "food": "Yemek",
         "favorites": "Favoriler",
@@ -7,5 +11,12 @@
         "map": "Harita",
         "searchOnMap": "Haritada Ara"
     },
-    "search": "Mekan Ara"
+    "search": "Mekan Ara",
+    "profileView": {
+        "userName": "İsim",
+        "userPhone": "Telefon Numarası",
+        "photoCamera": "Fotoğraf Çek",
+        "photoGallery": "Galeriden Seç",
+        "removePhoto": "Fotoğrafı Kaldır"
+    }
 }

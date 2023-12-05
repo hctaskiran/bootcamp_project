@@ -4,7 +4,7 @@ import 'package:bootcamp_project/product/feature/constants/application.dart';
 import 'package:http/http.dart' as http;
 
 class PlacesService {
-  String p = 'places';
+  String place = 'places';
 
   PlacesService();
   Future<dynamic> searchNearbyPlaces(double lat, double long, String searchType) async {
@@ -16,7 +16,7 @@ class PlacesService {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': apiKey,
       'X-Goog-FieldMask':
-          '$p.rating,$p.photos,$p.displayName,$p.formattedAddress,$p.types,$p.location,$p.id,$p.nationalPhoneNumber,$p.businessStatus',
+          '$place.rating,$place.photos,$place.displayName,$place.formattedAddress,$place.types,$place.location,$place.id,$place.nationalPhoneNumber,$place.businessStatus',
     };
 
     final body = jsonEncode({
