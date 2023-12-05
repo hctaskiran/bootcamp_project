@@ -1,6 +1,6 @@
-import 'package:bootcamp_project/product/feature/constants/application.dart';
-import 'package:bootcamp_project/product/feature/enum/language_enum.dart';
-import 'package:bootcamp_project/product/widgets/bottom_nav_bar.dart';
+import 'package:bootcamp_project/constants/application.dart';
+import 'package:bootcamp_project/enum/language_enum.dart';
+import 'package:bootcamp_project/components/widgets/bottom_nav_bar.dart';
 import 'package:bootcamp_project/theme/theme_bottom_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

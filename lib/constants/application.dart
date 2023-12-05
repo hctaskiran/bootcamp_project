@@ -1,4 +1,4 @@
-import 'package:bootcamp_project/product/feature/enum/language_enum.dart';
+import 'package:bootcamp_project/enum/language_enum.dart';
 import 'package:googleapis/places/v1.dart';
 import 'package:googleapis_auth/auth_io.dart';
 

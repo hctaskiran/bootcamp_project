@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: unused_field
+
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
-import 'package:bootcamp_project/product/model/place_models.dart';
-import 'package:bootcamp_project/product/services/location_services.dart';
-import 'package:bootcamp_project/product/services/place_services.dart';
+import 'package:bootcamp_project/model/place_models.dart';
+import 'package:bootcamp_project/services/location_services.dart';
+import 'package:bootcamp_project/services/place_services.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

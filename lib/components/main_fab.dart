@@ -1,4 +1,4 @@
-import 'package:bootcamp_project/product/map.dart';
+import 'package:bootcamp_project/components/map.dart';
 import 'package:flutter/material.dart';
 
 class MainFAB extends StatelessWidget {

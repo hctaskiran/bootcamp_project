@@ -1,6 +1,6 @@
 import 'dart:convert' as convert;
 
-import 'package:bootcamp_project/product/feature/constants/application.dart';
+import 'package:bootcamp_project/constants/application.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;

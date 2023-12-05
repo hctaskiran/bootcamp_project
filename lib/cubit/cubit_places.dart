@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bootcamp_project/product/feature/constants/application.dart';
+import 'package:bootcamp_project/constants/application.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';

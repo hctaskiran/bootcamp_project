@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
-import 'package:bootcamp_project/product/feature/constants/bnb_pages.dart';
-import 'package:bootcamp_project/product/feature/enum/locale_enum.dart';
-import 'package:bootcamp_project/product/widgets/drawer.dart';
-import 'package:bootcamp_project/product/widgets/components/main_fab.dart';
+import 'package:bootcamp_project/constants/bnb_pages.dart';
+import 'package:bootcamp_project/enum/locale_enum.dart';
+import 'package:bootcamp_project/components/main_fab.dart';
+import 'package:bootcamp_project/components/widgets/drawer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +18,7 @@ class NavBarController extends StatefulWidget {
 class _NavBarControllerState extends State<NavBarController> {
   int _selectedIndex = 0;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,37 +26,7 @@ class _NavBarControllerState extends State<NavBarController> {
       appBar: AppBar(
         title: _selectedIndex == 0 ? Text(LocaleKeys.placeTypes_food.tr()) : Text(LocaleKeys.placeTypes_favorites.tr()),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 15),
-            child: Container(
-                decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.circular(10)),
-                child: DropdownButton(
-                  iconEnabledColor: Colors.white,
-                  iconDisabledColor: Colors.white,
-                  padding: EdgeInsets.all(5),
-                  isDense: true,
-                  hint: const Icon(
-                    Icons.language_rounded,
-                    color: Colors.white,
-                  ),
-                  underline: const SizedBox(),
-                  items: AppLanguages.Languages.asMap()
-                      .map((index, value) => MapEntry(
-                          index,
-                          DropdownMenuItem(
-                            value: value,
-                            child: Text(value),
-                          )))
-                      .values
-                      .toList(),
-                  onChanged: (newValue) {
-                    int selectedIndex = AppLanguages.Languages.indexOf(newValue as String);
-                    context.locale = AppLanguages.supportedLanguages[selectedIndex];
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => const NavBarController()));
-                  },
-                )),
-          )
+          _languageSelect(context)
         ],
       ),
       floatingActionButton: MainFAB(),
@@ -64,6 +35,40 @@ class _NavBarControllerState extends State<NavBarController> {
       drawer: const AppDrawer(),
       body: NavigationPages.pages.elementAt(_selectedIndex),
     );
+  }
+
+  Padding _languageSelect(BuildContext context) {
+    return Padding(
+          padding: const EdgeInsets.only(right: 15),
+          child: Container(
+              decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.circular(10)),
+              child: DropdownButton(
+              iconEnabledColor: Colors.white,
+              iconDisabledColor: Colors.white,
+              padding: EdgeInsets.all(5),
+              isDense: true,
+              hint: const Icon(
+                Icons.language_rounded,
+                color: Colors.white,
+              ),
+              underline: const SizedBox(),
+              items: AppLanguages.Languages.asMap()
+                  .map((index, value) => MapEntry(
+                      index,
+                      DropdownMenuItem(
+                        value: value,
+                        child: Text(value),
+                      )))
+                  .values
+                  .toList(),
+              onChanged: (newValue) {
+                int selectedIndex = AppLanguages.Languages.indexOf(newValue as String);
+                context.locale = AppLanguages.supportedLanguages[selectedIndex];
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => const NavBarController()));
+              },
+            )),
+        );
   }
 
   BottomNavigationBar _botNavBar() {

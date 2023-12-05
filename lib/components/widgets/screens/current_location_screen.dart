@@ -1,4 +1,4 @@
-import 'package:bootcamp_project/product/services/location_services.dart';
+import 'package:bootcamp_project/services/location_services.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

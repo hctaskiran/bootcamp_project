@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bootcamp_project/product/feature/constants/application.dart';
+import 'package:bootcamp_project/constants/application.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:uuid/uuid.dart';
