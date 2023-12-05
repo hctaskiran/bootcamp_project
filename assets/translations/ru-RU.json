@@ -18,6 +18,7 @@
         "photoCamera": "Снять Фото",
         "photoGallery": "Выбрать Фото",
         "removePhoto": "Удалить Фото",
-        "editProfile": "Редактировать Профиль"
+        "editProfile": "Редактировать Профиль",
+        "save": "Сохранить"
     }
 }

@@ -15,8 +15,8 @@ class ProfileView extends StatefulWidget {
 
 class _ProfileViewState extends State<ProfileView> {
   File? _image;
-  String _userName = ""; // Initialize with an empty string
-  String _userPhoneNumber = ""; // Initialize with an empty string
+  String _userName = "";
+  String _userPhoneNumber = "";
 
   @override
   void initState() {
@@ -107,6 +107,7 @@ class _ProfileViewState extends State<ProfileView> {
         return AlertDialog(
           title: Text(LocaleKeys.profileView_editProfile.tr()),
           content: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 onChanged: (value) {
@@ -128,13 +129,14 @@ class _ProfileViewState extends State<ProfileView> {
           ),
           actions: [
             ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue[100], foregroundColor: Colors.white),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 prefs.setString('user_name', _userName);
                 prefs.setString('user_phone_number', _userPhoneNumber);
                 Navigator.pop(context);
               },
-              child: const Text("Save"),
+              child: Text(LocaleKeys.profileView_save.tr()),
             ),
           ],
         );
@@ -162,8 +164,9 @@ class _ProfileViewState extends State<ProfileView> {
           _image != null
               ? ElevatedButton(
                   onPressed: _removePhoto,
-                  child: Text(LocaleKeys.profileView_removePhoto.tr()),
-                )
+                  child: Text(
+                    LocaleKeys.profileView_removePhoto.tr(),
+                  ))
               : Container(),
           const SizedBox(height: 20),
 

@@ -18,6 +18,7 @@ abstract class  LocaleKeys {
   static const profileView_photoGallery = 'profileView.photoGallery';
   static const profileView_removePhoto = 'profileView.removePhoto';
   static const profileView_editProfile = 'profileView.editProfile';
+  static const profileView_save = 'profileView.save';
   static const profileView = 'profileView';
 
 }

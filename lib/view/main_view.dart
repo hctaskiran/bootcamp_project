@@ -1,5 +1,6 @@
 // ignore_for_file: unused_field
 
+import 'package:bootcamp_project/extension/photo_extension.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/model/place_models.dart';
 import 'package:bootcamp_project/services/location_services.dart';
@@ -39,17 +40,28 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(
-            itemCount: nearbyPlaces.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(nearbyPlaces[index].displayName.text),
-                subtitle: Text(nearbyPlaces[index].formattedAddress.toString()),
-              );
-            }));
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: [
+            const SizedBox(height: 20),
+            _searchBar(searchController: _searchController),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                  itemCount: nearbyPlaces.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(nearbyPlaces[index].displayName.text),
+                      subtitle: Text(nearbyPlaces[index].formattedAddress.toString()),
+                      onTap: () {
+                        print(PlaceImgExt(nearbyPlaces[index].photos[index].name).toImg());
+                      },
+                    );
+                  }),
+            ),
+          ],
+        ));
   }
-
-  // _searchBar(searchController: _searchController),
 
   Future<void> fetchNearbyPlaces(double rlat, double rlong) async {
     try {
@@ -72,34 +84,37 @@ class _MainViewState extends State<MainView> {
 }
 
 class _searchBar extends StatelessWidget {
-  _searchBar({
+  const _searchBar({
     super.key,
     required TextEditingController searchController,
   }) : _searchController = searchController;
 
   final TextEditingController _searchController;
-  final _contentPadding = EdgeInsets.symmetric(vertical: 10);
-  final _hintTextStyle = TextStyle(fontStyle: FontStyle.italic, fontSize: 12);
-  final _formFieldStyle = TextStyle(color: Colors.black);
+  final _contentPadding = const EdgeInsets.symmetric(vertical: 10);
+  final _hintTextStyle = const TextStyle(fontStyle: FontStyle.italic, fontSize: 12);
+  final _formFieldStyle = const TextStyle(color: Colors.black);
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: _searchController,
-      style: _formFieldStyle,
-      decoration: InputDecoration(
-        contentPadding: _contentPadding,
-        hintStyle: _hintTextStyle,
-        hintText: LocaleKeys.search.tr(),
-        prefixIcon: Icon(
-          Icons.search,
-          size: 20,
-        ),
-        prefixIconConstraints: BoxConstraints(
-          minWidth: 40,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: TextFormField(
+        controller: _searchController,
+        style: _formFieldStyle,
+        decoration: InputDecoration(
+          contentPadding: _contentPadding,
+          hintStyle: _hintTextStyle,
+          hintText: LocaleKeys.search.tr(),
+          prefixIcon: const Icon(
+            Icons.search,
+            size: 20,
+          ),
+          prefixIconConstraints: const BoxConstraints(
+            minWidth: 40,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
       ),
     );

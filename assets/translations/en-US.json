@@ -18,6 +18,7 @@
         "photoCamera": "Take a Picture",
         "photoGallery": "Choose from Gallery",
         "removePhoto": "Remove Photo",
-        "editProfile": "Edit Profile"
+        "editProfile": "Edit Profile",
+        "save": "Save"
     }
 }

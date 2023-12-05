@@ -71,7 +71,6 @@ class _MapSampleState extends State<MapSample> {
   final FocusNode _firstFocusNode = FocusNode();
   final FocusNode _secondFocusNode = FocusNode();
 
-/*
   @override
   void dispose() {
     _firstFocusNode.dispose();
@@ -80,11 +79,15 @@ class _MapSampleState extends State<MapSample> {
     _controllerDestination.dispose();
     super.dispose();
   }
-*/
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text('Maps'),
+        backgroundColor: Colors.green[700],
+      ),
       body: Column(
         children: [
           Row(

@@ -18,6 +18,7 @@
         "photoCamera": "Fotoğraf Çek",
         "photoGallery": "Galeriden Seç",
         "removePhoto": "Fotoğrafı Kaldır",
-        "editProfile": "Profili Düzenle"
+        "editProfile": "Profili Düzenle",
+        "save": "Kaydet"
     }
 }

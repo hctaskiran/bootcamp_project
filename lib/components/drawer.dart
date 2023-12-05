@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:bootcamp_project/components/favorites.dart';
+import 'package:bootcamp_project/components/profile_page.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
-import 'package:bootcamp_project/components/widgets/profile_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,13 @@ class _AppDrawerState extends State<AppDrawer> {
                 },
               ),
               ListTile(
+                leading: const Icon(Icons.favorite_border_outlined),
+                title: Text(LocaleKeys.placeTypes_favorites.tr()),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const FavoritesView()));
+                },
+              ),
+              ListTile(
                 leading: const Icon(Icons.info_outline),
                 title: Text(LocaleKeys.drawer_aboutApp.tr()),
                 onTap: () {
@@ -43,7 +51,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       return AlertDialog(
                         title: Text(LocaleKeys.drawer_aboutApp.tr()),
                         content: const Text(
-                          "app info",
+                          "apdsadasdasp info",
                           style: TextStyle(color: Colors.black),
                         ),
                       );

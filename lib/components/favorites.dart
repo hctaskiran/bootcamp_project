@@ -12,7 +12,9 @@ class _FavoritesViewState extends State<FavoritesView> {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: Column(
-      children: [],
+      children: [
+        Text("Favorites"),
+      ],
     ));
   }
 }
