@@ -147,7 +147,7 @@ class _MapSampleState extends State<MapSample> {
                     mapType: MapType.normal,
                     initialCameraPosition: const CameraPosition(
                       target: LatLng(
-                          0, 0), // Updated to dummy values; will be overwritten on obtaining the current location
+                          0, 0), 
                       zoom: 14.4746,
                     ),
                     onMapCreated: (GoogleMapController controller) {
