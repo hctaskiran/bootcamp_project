@@ -5,6 +5,7 @@ import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/model/place_models.dart';
 import 'package:bootcamp_project/services/location_services.dart';
 import 'package:bootcamp_project/services/place_services.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -51,6 +52,14 @@ class _MainViewState extends State<MainView> {
                   itemCount: nearbyPlaces.length,
                   itemBuilder: (context, index) {
                     return ListTile(
+                      leading: SizedBox(
+                        width: 128,
+                        height: 64,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: CachedNetworkImage(
+                                fit: BoxFit.cover, imageUrl: PlaceImgExt(nearbyPlaces[index].photos[1].name).toImg())),
+                      ),
                       title: Text(nearbyPlaces[index].displayName.text),
                       subtitle: Text(nearbyPlaces[index].formattedAddress.toString()),
                       onTap: () {
