@@ -17,6 +17,7 @@
         "userPhone": "Phone",
         "photoCamera": "Take a Picture",
         "photoGallery": "Choose from Gallery",
-        "removePhoto": "Remove Photo"
+        "removePhoto": "Remove Photo",
+        "editProfile": "Edit Profile"
     }
 }

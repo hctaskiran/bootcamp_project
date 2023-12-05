@@ -4,7 +4,7 @@ import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/product/feature/constants/bnb_pages.dart';
 import 'package:bootcamp_project/product/feature/enum/locale_enum.dart';
 import 'package:bootcamp_project/product/widgets/drawer.dart';
-import 'package:bootcamp_project/product/widgets/main_fab.dart';
+import 'package:bootcamp_project/product/widgets/components/main_fab.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

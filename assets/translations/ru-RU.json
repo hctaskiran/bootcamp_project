@@ -17,6 +17,7 @@
         "userPhone": "Номер Телефона",
         "photoCamera": "Снять Фото",
         "photoGallery": "Выбрать Фото",
-        "removePhoto": "Удалить Фото"
+        "removePhoto": "Удалить Фото",
+        "editProfile": "Редактировать Профиль"
     }
 }

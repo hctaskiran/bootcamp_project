@@ -17,6 +17,7 @@
         "userPhone": "Telefon Numarası",
         "photoCamera": "Fotoğraf Çek",
         "photoGallery": "Galeriden Seç",
-        "removePhoto": "Fotoğrafı Kaldır"
+        "removePhoto": "Fotoğrafı Kaldır",
+        "editProfile": "Profili Düzenle"
     }
 }

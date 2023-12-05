@@ -1,22 +1,23 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
+import 'package:bootcamp_project/product/model/place_models.dart';
 import 'package:bootcamp_project/product/services/location_services.dart';
 import 'package:bootcamp_project/product/services/place_services.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class RestaurantView extends StatefulWidget {
-  const RestaurantView({super.key});
+class MainView extends StatefulWidget {
+  const MainView({super.key});
 
   @override
-  State<RestaurantView> createState() => _RestaurantViewState();
+  State<MainView> createState() => _MainViewState();
 }
 
-class _RestaurantViewState extends State<RestaurantView> {
+class _MainViewState extends State<MainView> {
   double lat = 0;
   double long = 0;
   final TextEditingController _searchController = TextEditingController();
+  List<PlaceElement> nearbyPlaces = [];
 
   @override
   void initState() {
@@ -30,35 +31,42 @@ class _RestaurantViewState extends State<RestaurantView> {
         lat = value.latitude;
         long = value.longitude;
       });
+      fetchNearbyPlaces(lat, long);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          child: _searchBar(searchController: _searchController),
-        ),
-        Expanded(
-            child: FutureBuilder(
-                future: PlacesService().searchNearbyPlaces(lat, long, 'restaurant'),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return ListView.builder(itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(snapshot.data[index].toString()),
-                        subtitle: Text(snapshot.data[index].toString()),
-                      );
-                    });
-                  } else {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                }))
-      ],
-    ));
+        body: ListView.builder(
+            itemCount: nearbyPlaces.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(nearbyPlaces[index].displayName.text),
+                subtitle: Text(nearbyPlaces[index].formattedAddress.toString()),
+              );
+            }));
+  }
+
+  // _searchBar(searchController: _searchController),
+
+  Future<void> fetchNearbyPlaces(double rlat, double rlong) async {
+    try {
+      final places = await PlacesService().searchNearbyPlaces(
+        rlat,
+        rlong,
+        'cafe',
+      );
+      if (places != null && places.containsKey('places')) {
+        setState(() {
+          nearbyPlaces = places['places'].map<PlaceElement>((place) => PlaceElement.fromJson(place)).toList();
+        });
+      } else {
+        print('Invalid response format');
+      }
+    } catch (e) {
+      print('Exception: $e');
+    }
   }
 }
 

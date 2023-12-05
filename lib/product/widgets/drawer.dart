@@ -13,6 +13,7 @@ class AppDrawer extends StatefulWidget {
 
 class _AppDrawerState extends State<AppDrawer> {
   final String _title = "POCKET   PLACE";
+
   @override
   Widget build(BuildContext context) {
     return Drawer(

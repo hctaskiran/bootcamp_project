@@ -3,5 +3,5 @@ import 'package:bootcamp_project/product/feature/view/food_view.dart';
 import 'package:bootcamp_project/product/widgets/favorites.dart';
 
 class NavigationPages {
-  static final pages = [const RestaurantView(), const FavoritesView()];
+  static final pages = [const MainView(), const FavoritesView()];
 }
