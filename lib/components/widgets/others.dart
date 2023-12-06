@@ -45,3 +45,37 @@
 //     );
 //   }
 // }
+
+
+
+
+///////////////////////
+
+
+/*
+Widget _buildSearchBar() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: TextFormField(
+        onTap: () {},
+        controller: _searchController,
+        style: const TextStyle(color: Colors.black),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(vertical: 10),
+          hintStyle: const TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
+          hintText: LocaleKeys.search.tr(),
+          prefixIcon: const Icon(
+            Icons.search,
+            size: 20,
+          ),
+          prefixIconConstraints: const BoxConstraints(
+            minWidth: 40,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+    );
+  }
+*/

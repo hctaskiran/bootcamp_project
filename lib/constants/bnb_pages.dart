@@ -1,7 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
-import 'package:bootcamp_project/view/cafe_view.dart';
-import 'package:bootcamp_project/view/food_view.dart';
+import 'package:bootcamp_project/view/main/cafe_view.dart';
+import 'package:bootcamp_project/view/main/food_view.dart';
+import 'package:bootcamp_project/view/main/hotel_view.dart';
+import 'package:bootcamp_project/view/main/store_view.dart';
 
 class NavigationPages {
-  static final pages = [const FoodView(), const CafeView()];
+  static final pages = [const FoodView(), const CafeView(), const StoreView(), const HotelView()];
 }

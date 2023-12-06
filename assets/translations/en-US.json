@@ -1,17 +1,31 @@
 {
+    "info": "Places cover a radius of 500 metres.",
     "drawer": {
         "profile": "Profile",
-        "aboutApp": "About the App"
+        "aboutAppTitle": "About App",
+        "aboutAppText": "This application is the 2023 Erciyes Technopark graduation project. \n\nUsing Google Place API, various places are listed and the necessary details are obtained by adding various parameters."
+    },
+    "intro": {
+        "page1": "Are you curious about what's around you, but don't know where to start?",
+        "page2": "No problem, now you have Pocket Place. Let's start!",
+        "page3": "You can go wherever you want by exploring the places around you.",
+        "page4": "You can even save places you like. Good luck! =)",
+        "next": "Next",
+        "done": "Done"
     },
     "placeTypes": {
         "food": "Food",
-        "favorites": "Favorites",
         "cafe": "Cafe",
-        "cinema": "Cinema",
-        "map": "Map",
-        "searchOnMap": "Search on Map"
+        "store": "Store",
+        "hotel": "Hotel",
+        "favorites": "Favorites",
+        "map": "Map"
     },
-    "search": "Search For a Place",
+    "details": {
+        "rating": "Rating",
+        "address": "Address",
+        "phone": "Phone"
+    },
     "profileView": {
         "userName": "Name",
         "userPhone": "Phone",

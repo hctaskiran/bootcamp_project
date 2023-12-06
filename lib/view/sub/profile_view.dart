@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:bootcamp_project/constants/colors.dart';
+import 'package:bootcamp_project/constants/sized_box.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -129,7 +131,7 @@ class _ProfileViewState extends State<ProfileView> {
           ),
           actions: [
             ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue[100], foregroundColor: Colors.white),
+              style: ElevatedButton.styleFrom(backgroundColor: CColor.blu100, foregroundColor: Colors.white),
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 prefs.setString('user_name', _userName);
@@ -153,14 +155,14 @@ class _ProfileViewState extends State<ProfileView> {
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 40),
+          SB.h40,
           Center(
             child: InkWell(
               onTap: _openImagePicker,
               child: _chooseProfilePhoto(),
             ),
           ),
-          const SizedBox(height: 20),
+          SB.h20,
           _image != null
               ? ElevatedButton(
                   onPressed: _removePhoto,
@@ -168,23 +170,20 @@ class _ProfileViewState extends State<ProfileView> {
                     LocaleKeys.profileView_removePhoto.tr(),
                   ))
               : Container(),
-          const SizedBox(height: 20),
-
-          //
+          SB.h20,
           ListTile(
-            title: Text("${LocaleKeys.profileView_userName.tr()}:\n $_userName",
-                style: const TextStyle(color: Colors.black)),
+            title: Text("${LocaleKeys.profileView_userName.tr()}:\n $_userName", style: TextStyle(color: CColor.black)),
             onTap: _editUserInfo,
           ),
-          const SizedBox(height: 10),
+          SB.h10,
           ListTile(
             title: Text(
               "${LocaleKeys.profileView_userPhone.tr()}:\n $_userPhoneNumber",
-              style: const TextStyle(color: Colors.black),
+              style: TextStyle(color: CColor.black),
             ),
             onTap: _editUserInfo,
           ),
-          const SizedBox(height: 20),
+          SB.h20,
         ],
       ),
     );
@@ -196,20 +195,21 @@ class _ProfileViewState extends State<ProfileView> {
       height: 150,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.grey,
-        image: _image != null
-            ? DecorationImage(
-                fit: BoxFit.cover,
-                image: FileImage(_image!),
-              )
-            : null,
+        color: CColor.gry,
       ),
-      child: _image == null
-          ? const Icon(
+      child: _image != null
+          ? ClipOval(
+              child: Image.file(
+                _image!,
+                width: 150,
+                height: 150,
+                fit: BoxFit.cover,
+              ),
+            )
+          : const Icon(
               Icons.camera_alt,
               color: Colors.white,
-            )
-          : null,
+            ),
     );
   }
 }

@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:bootcamp_project/components/choose_language.dart';
 import 'package:bootcamp_project/components/drawer.dart';
 import 'package:bootcamp_project/components/main_fab.dart';
 import 'package:bootcamp_project/constants/bnb_pages.dart';
-import 'package:bootcamp_project/enum/locale_enum.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -18,74 +19,71 @@ class NavBarController extends StatefulWidget {
 class _NavBarControllerState extends State<NavBarController> {
   int _selectedIndex = 0;
 
+  final List _icons = [
+    Icon(Icons.fastfood_outlined),
+    Icon(Icons.coffee_outlined),
+    Icon(Icons.store_outlined),
+    Icon(Icons.bedtime_outlined)
+  ];
+
+  final List _active = [Icon(Icons.fastfood), Icon(Icons.coffee), Icon(Icons.store), Icon(Icons.bedtime)];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: _selectedIndex == 0 ? Text(LocaleKeys.placeTypes_food.tr()) : Text(LocaleKeys.placeTypes_cafe.tr()),
-        actions: [_languageSelect(context)],
+        title: _selectedIndex == 0
+            ? _animatedTitle(LocaleKeys.placeTypes_food.tr())
+            : _selectedIndex == 1
+                ? _animatedTitle(LocaleKeys.placeTypes_cafe.tr())
+                : _selectedIndex == 2
+                    ? _animatedTitle(LocaleKeys.placeTypes_store.tr())
+                    : _animatedTitle(LocaleKeys.placeTypes_hotel.tr()),
+        actions: [ChooseLanguage(context: context)],
       ),
       floatingActionButton: MainFAB(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: _botNavBar(),
+      bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 14,
+          unselectedFontSize: 10,
+          currentIndex: _selectedIndex,
+          onTap: (index) => setState(() => _selectedIndex = index),
+          items: [
+            BottomNavigationBarItem(
+              icon: _icons[0],
+              activeIcon: _active[0],
+              label: LocaleKeys.placeTypes_food.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: _icons[1],
+              activeIcon: _active[1],
+              label: LocaleKeys.placeTypes_cafe.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: _icons[2],
+              activeIcon: _active[2],
+              label: LocaleKeys.placeTypes_store.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: _icons[3],
+              activeIcon: _active[3],
+              label: LocaleKeys.placeTypes_hotel.tr(),
+            ),
+          ]),
       drawer: const AppDrawer(),
       body: NavigationPages.pages.elementAt(_selectedIndex),
     );
   }
 
-  Padding _languageSelect(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 15),
-      child: Container(
-          decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.circular(10)),
-          child: DropdownButton(
-            iconEnabledColor: Colors.white,
-            iconDisabledColor: Colors.white,
-            padding: EdgeInsets.all(5),
-            isDense: true,
-            hint: const Icon(
-              Icons.language_rounded,
-              color: Colors.white,
-            ),
-            underline: const SizedBox(),
-            items: AppLanguages.Languages.asMap()
-                .map((index, value) => MapEntry(
-                    index,
-                    DropdownMenuItem(
-                      value: value,
-                      child: Text(value),
-                    )))
-                .values
-                .toList(),
-            onChanged: (newValue) {
-              int selectedIndex = AppLanguages.Languages.indexOf(newValue as String);
-              context.setLocale(AppLanguages.supportedLanguages[selectedIndex]);
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const NavBarController()));
-            },
-          )),
+  AnimatedTextKit _animatedTitle(String text) {
+    return AnimatedTextKit(
+      repeatForever: true,
+      pause: const Duration(seconds: 1),
+      animatedTexts: [
+        FadeAnimatedText(text, duration: const Duration(seconds: 5)),
+      ],
     );
-  }
-
-  BottomNavigationBar _botNavBar() {
-    return BottomNavigationBar(
-        selectedFontSize: 18,
-        unselectedFontSize: 10,
-        currentIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.fastfood_outlined),
-              activeIcon: Icon(Icons.fastfood),
-              label: LocaleKeys.placeTypes_food.tr()),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.coffee_outlined),
-              label: LocaleKeys.placeTypes_cafe.tr(),
-              activeIcon: Icon(Icons.coffee)),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.local_movies_outlined), label: LocaleKeys.placeTypes_cinema.tr()),
-          // BottomNavigationBarItem(icon: Icon(Icons.local_cafe_rounded), label: LocaleKeys.placeTypes_cafe.tr()),
-          // BottomNavigationBarItem(icon: const Icon(Icons.settings), label: LocaleKeys.placeTypes_map.tr()),
-        ]);
   }
 }

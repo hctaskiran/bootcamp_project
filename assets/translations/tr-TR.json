@@ -1,17 +1,31 @@
 {
+    "info": "Mekanlar 500 metrelik alanı kapsamaktadır.",
     "drawer": {
         "profile": "Profil",
-        "aboutApp": "Uygulama Hakkında"
+        "aboutAppTitle": "Uygulama Hakkında",
+        "aboutAppText": "Bu uygulama, 2023 Erciyes Teknopark bitirme projesidir. \n\nGoogle Place API kullanarak çeşitli yerler listelenir ve çeşitli parametreler eklenerek gerekli detaylar elde edilir."
+    },
+    "intro": {
+        "page1": "Etrafında neler var merak ediyorsun, fakat nereden başlayacağını bilmiyor musun?",
+        "page2": "Sorun değil, artık Pocket Place var. Hadi başlayalım!",
+        "page3": "Etrafındaki yerleri keşfederek istediğin yere gidebilirsin.",
+        "page4": "Hatta beğendiğin yerleri kaydedebilirsin. Bol şans! =)",
+        "next": "İleri",
+        "done": "Tamam"
     },
     "placeTypes": {
         "food": "Yemek",
-        "favorites": "Favoriler",
         "cafe": "Kafe",
-        "cinema": "Sinema",
-        "map": "Harita",
-        "searchOnMap": "Haritada Ara"
+        "store": "Mağaza",
+        "hotel": "Konaklama",
+        "favorites": "Favoriler",
+        "map": "Harita"
     },
-    "search": "Mekan Ara",
+    "details": {
+        "rating": "Puan",
+        "address": "Adres",
+        "phone": "Telefon Numarası"
+    },
     "profileView": {
         "userName": "İsim",
         "userPhone": "Telefon Numarası",
