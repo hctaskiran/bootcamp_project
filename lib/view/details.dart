@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class PlaceDetails extends StatefulWidget {
+class PlaceDetails extends StatelessWidget {
   const PlaceDetails({super.key});
 
   @override
-  State<PlaceDetails> createState() => PlaceDetailsState();
-}
-
-class PlaceDetailsState extends State<PlaceDetails> {
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    // double screenHeight = MediaQuery.of(context).size.height;
+    // double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Details')),
+      extendBodyBehindAppBar: true,
+    );
   }
 }

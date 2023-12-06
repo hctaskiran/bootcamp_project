@@ -20,5 +20,12 @@
         "removePhoto": "Fotoğrafı Kaldır",
         "editProfile": "Profili Düzenle",
         "save": "Kaydet"
+    },
+    "map": {
+        "findMe": "Beni Bul"
+    },
+    "fails": {
+        "failedData": "Veriler alınamadı. Lütfen bağlantınızı kontrol edin.",
+        "refreshButton": "Yenile"
     }
 }

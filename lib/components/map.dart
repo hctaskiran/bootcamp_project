@@ -146,8 +146,7 @@ class _MapSampleState extends State<MapSample> {
                     polylines: _polylines,
                     mapType: MapType.normal,
                     initialCameraPosition: const CameraPosition(
-                      target: LatLng(
-                          0, 0), 
+                      target: LatLng(0, 0),
                       zoom: 14.4746,
                     ),
                     onMapCreated: (GoogleMapController controller) {

@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:bootcamp_project/components/favorites.dart';
-import 'package:bootcamp_project/components/profile_page.dart';
+import 'package:bootcamp_project/view/favorites.dart';
+import 'package:bootcamp_project/view/profile_page.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

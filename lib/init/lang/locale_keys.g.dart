@@ -20,5 +20,10 @@ abstract class  LocaleKeys {
   static const profileView_editProfile = 'profileView.editProfile';
   static const profileView_save = 'profileView.save';
   static const profileView = 'profileView';
+  static const map_findMe = 'map.findMe';
+  static const map = 'map';
+  static const fails_failedData = 'fails.failedData';
+  static const fails_refreshButton = 'fails.refreshButton';
+  static const fails = 'fails';
 
 }

@@ -1,4 +1,4 @@
-import 'package:bootcamp_project/components/map.dart';
+import 'package:bootcamp_project/components/new_map.dart';
 import 'package:flutter/material.dart';
 
 class MainFAB extends StatelessWidget {
@@ -15,7 +15,7 @@ class MainFAB extends StatelessWidget {
           left: 170,
           child: FloatingActionButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const MapSample()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const NewMap()));
             },
             child: const Icon(Icons.map_outlined),
           ),

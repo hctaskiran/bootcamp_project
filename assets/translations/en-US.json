@@ -20,5 +20,12 @@
         "removePhoto": "Remove Photo",
         "editProfile": "Edit Profile",
         "save": "Save"
+    },
+    "map": {
+        "findMe": "Find Me"
+    },
+    "fails": {
+        "failedData": "Failed to load data. Please check your internet connection.",
+        "refreshButton": "Refresh"
     }
 }
