@@ -42,7 +42,7 @@ class IntroPage2 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Lottie.network('https://lottie.host/2304c971-0737-46f8-ae45-e7d7cd41c554/dkUWw78Tje.json')
+            Lottie.asset('assets/img/animasyon1.json')
           ],
         ),
       ),

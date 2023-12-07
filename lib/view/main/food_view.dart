@@ -116,7 +116,20 @@ class _FoodViewState extends State<FoodView> {
                         : Image.asset(notFound)),
               ),
               title: Text(nearbyPlaces[index].displayName.text),
-              subtitle: Text('${LocaleKeys.details_rating.tr()}: ${nearbyPlaces[index].rating.toString()}'),
+              subtitle: nearbyPlaces[index].businessStatus == 'OPERATIONAL'
+                  ? Text(
+                      LocaleKeys.placeStatus_open.tr(),
+                      style: TextStyle(color: CColor.blue),
+                    )
+                  : nearbyPlaces[index].businessStatus == 'CLOSED_TEMPORARILY'
+                      ? Text(
+                          LocaleKeys.placeStatus_tempClosed.tr(),
+                          style: TextStyle(color: CColor.orange),
+                        )
+                      : Text(
+                          LocaleKeys.placeStatus_closed.tr(),
+                          style: TextStyle(color: CColor.red),
+                        ),
               onTap: () {
                 showModalBottomSheet(
                     isScrollControlled: true,

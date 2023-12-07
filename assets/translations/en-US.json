@@ -1,5 +1,5 @@
 {
-    "info": "Places cover a radius of 500 metres.",
+    "info": "Places cover a radius of 1000 metres.",
     "drawer": {
         "profile": "Profile",
         "aboutAppTitle": "About App",
@@ -41,5 +41,10 @@
     "fails": {
         "failedData": "Failed to load data. Please check your internet connection.",
         "refreshButton": "Refresh"
+    },
+    "placeStatus": {
+        "open": "Open",
+        "closed": "Closed",
+        "tempClosed": "Closed Temporarily"
     }
 }

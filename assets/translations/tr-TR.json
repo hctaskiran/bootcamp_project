@@ -1,5 +1,5 @@
 {
-    "info": "Mekanlar 500 metrelik alanı kapsamaktadır.",
+    "info": "Mekanlar 1000 metrelik alanı kapsamaktadır.",
     "drawer": {
         "profile": "Profil",
         "aboutAppTitle": "Uygulama Hakkında",
@@ -41,5 +41,10 @@
     "fails": {
         "failedData": "Veriler alınamadı. Lütfen bağlantınızı kontrol edin.",
         "refreshButton": "Yenile"
+    },
+    "placeStatus": {
+        "open": "Açık",
+        "closed": "Kapalı",
+        "tempClosed": "Geçici Olarak Kapalı"
     }
 }

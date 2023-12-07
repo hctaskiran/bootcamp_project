@@ -37,7 +37,7 @@ class ChooseLanguage extends Padding {
                 context.setLocale(AppLanguages.supportedLanguages[selectedIndex]);
                 Navigator.push(
                   context,
-                  LanguageAnim(page: const NavBarController()),
+                  FadeAnim(page: const NavBarController()),
                 );
               },
             ),

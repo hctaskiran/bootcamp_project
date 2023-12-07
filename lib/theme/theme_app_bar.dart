@@ -10,7 +10,9 @@ class CustomAppBarTheme extends AppBarTheme {
                 bottom: Radius.elliptical(30, 30),
               ),
             ),
-            backgroundColor: CColor.abBg,
+            elevation: 0,
+            scrolledUnderElevation: 0,
+            backgroundColor: CColor.tr,
             iconTheme: IconThemeData(color: CColor.black),
             centerTitle: true,
             titleTextStyle: TextStyle(color: CColor.black, fontSize: 20));

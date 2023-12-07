@@ -10,7 +10,8 @@ class CustomBNBTheme extends BottomNavigationBarThemeData {
           selectedItemColor: CColor.black,
           showUnselectedLabels: false,
           backgroundColor: CColor.bnbBg,
-          type: BottomNavigationBarType.fixed,
+          type: BottomNavigationBarType.shifting,
+          // type: BottomNavigationBarType.fixed,
         );
 }
 

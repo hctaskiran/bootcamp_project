@@ -6,6 +6,7 @@ class CColor {
   static Color blue = Colors.blue;
   static Color red = Colors.red;
   static Color gry = Colors.grey;
+  static Color orange = Colors.orange;
   static Color black = Colors.black;
   static Color r500 = Colors.red[500]!;
   static Color blu100 = Colors.blue[100]!;

@@ -37,5 +37,9 @@ abstract class  LocaleKeys {
   static const fails_failedData = 'fails.failedData';
   static const fails_refreshButton = 'fails.refreshButton';
   static const fails = 'fails';
+  static const placeStatus_open = 'placeStatus.open';
+  static const placeStatus_closed = 'placeStatus.closed';
+  static const placeStatus_tempClosed = 'placeStatus.tempClosed';
+  static const placeStatus = 'placeStatus';
 
 }

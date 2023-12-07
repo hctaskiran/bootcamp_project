@@ -24,7 +24,7 @@ class PlacesService {
       'locationRestriction': {
         'circle': {
           'center': {'latitude': lat, 'longitude': long},
-          'radius': 500.0,
+          'radius': 1000.0,
         },
       },
     });

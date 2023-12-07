@@ -6,11 +6,7 @@ class AppLanguages {
   const AppLanguages._();
   static const LANG_PATH = 'assets/translations/';
 
-  static const supportedLanguages = [
-    EN_LOCALE,
-    TR_LOCALE,
-    RU_LOCALE
-  ];
+  static const supportedLanguages = [EN_LOCALE, TR_LOCALE, RU_LOCALE];
   static const List<String> Languages = [
     "🇬🇧",
     "🇹🇷",

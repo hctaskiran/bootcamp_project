@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class LanguageAnim extends PageRouteBuilder {
+class FadeAnim extends PageRouteBuilder {
   final Widget page;
 
-  LanguageAnim({required this.page})
+  FadeAnim({required this.page})
       : super(
           pageBuilder: (context, animation, secondaryAnimation) => page,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -11,7 +11,6 @@ class LanguageAnim extends PageRouteBuilder {
             const end = 1.0;
             var tween = Tween(begin: begin, end: end);
             var opacityAnimation = animation.drive(tween);
-
             return FadeTransition(
               opacity: opacityAnimation,
               child: child,

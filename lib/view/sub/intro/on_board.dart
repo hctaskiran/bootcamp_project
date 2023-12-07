@@ -8,6 +8,7 @@ import 'package:bootcamp_project/view/sub/intro/intropage2.dart';
 import 'package:bootcamp_project/view/sub/intro/intropage3.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 // "page3": "Pocket Place, etrafındaki yerleri keşfetmeni sağlayan bir uygulamadır. \n\nUygulamayı kullanmak için, haritada bulunan yerlerden birini seçmen yeterli."
@@ -21,6 +22,21 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final PageController _controller = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    // checkOnboardingStatus();
+  }
+
+  Future<void> checkOnboardingStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool onboardingCompleted = prefs.getBool('onboardingCompleted') ?? false;
+
+    if (onboardingCompleted) {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => const NavBarController())));
+    }
+  }
 
   bool onLastPage = false;
 
@@ -46,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               SmoothPageIndicator(
                   controller: _controller,
                   count: 4,
-                  effect: ExpandingDotsEffect(dotColor: CColor.white, activeDotColor: Colors.green)),
+                  effect: ExpandingDotsEffect(dotColor: CColor.white, activeDotColor: Colors.orange)),
               onLastPage
                   ? GestureDetector(
                       onTap: () {

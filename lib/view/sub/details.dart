@@ -117,9 +117,10 @@ Widget PlaceDetailsModal(BuildContext context, PlaceElement place) {
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 4.0),
                         child: Text(
-                          place.nationalPhoneNumber.toString(),
-                          style: TextStyle(fontSize: 16, color: CColor.black),
-                        ),
+                            place.nationalPhoneNumber != null ? place.nationalPhoneNumber.toString() : 'Not Founded',
+                            style: place.nationalPhoneNumber != null
+                                ? TextStyle(fontSize: 16, color: CColor.black)
+                                : TextStyle(color: CColor.red, fontSize: 16)),
                       ),
                     ),
                   ),
