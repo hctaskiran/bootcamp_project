@@ -1,9 +1,9 @@
-import 'package:bootcamp_project/components/bottom_nav_bar.dart';
 import 'package:bootcamp_project/constants/application.dart';
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:bootcamp_project/enum/language_enum.dart';
 import 'package:bootcamp_project/theme/theme_app_bar.dart';
 import 'package:bootcamp_project/theme/theme_bottom_navigation_bar.dart';
+import 'package:bootcamp_project/view/sub/intro/on_board.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,6 +48,6 @@ class MyApp extends StatelessWidget {
           bottomNavigationBarTheme: CustomBNBTheme(),
           textTheme: TextTheme(bodyLarge: TextStyle(color: CColor.white), bodyMedium: TextStyle(color: CColor.white)),
         ),
-        home: const NavBarController());
+        home: const OnBoardingScreen());
   }
 }

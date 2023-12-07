@@ -120,6 +120,7 @@ class _CafeViewState extends State<CafeView> {
               subtitle: Text('${LocaleKeys.details_rating.tr()}: ${nearbyPlaces[index].rating.toString()}'),
               onTap: () {
                 showModalBottomSheet(
+                    isScrollControlled: true,
                     context: context,
                     builder: (context) {
                       return PlaceDetailsModal(context, nearbyPlaces[index]);

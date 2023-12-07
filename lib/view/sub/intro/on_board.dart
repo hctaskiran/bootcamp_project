@@ -75,8 +75,3 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     ));
   }
 }
-
-class _customTexts {
-  final doneText = Text('Done', style: TextStyle(color: CColor.white, fontWeight: FontWeight.bold));
-  final nextText = Text('Next', style: TextStyle(color: CColor.white, fontWeight: FontWeight.bold));
-}
