@@ -1,3 +1,4 @@
+import 'package:bootcamp_project/components/data_not_found.dart';
 import 'package:bootcamp_project/components/shimmer.dart';
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:bootcamp_project/constants/sized_box.dart';
@@ -6,7 +7,6 @@ import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/model/place_models.dart';
 import 'package:bootcamp_project/services/location_services.dart';
 import 'package:bootcamp_project/services/place_services.dart';
-import 'package:bootcamp_project/theme/details_page_anim.dart';
 import 'package:bootcamp_project/view/sub/details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -86,7 +86,13 @@ class _CafeViewState extends State<CafeView> {
     if (isLoading) {
       return const ShimmerLoad();
     } else if (isError) {
-      return _dataNotFound();
+      return DataNotFound(() {
+        setState(() {
+          isLoading = true;
+          isError = false;
+        });
+        _initializeMap();
+      });
     } else {
       return ListView.builder(
         itemCount: nearbyPlaces.length,
@@ -113,44 +119,17 @@ class _CafeViewState extends State<CafeView> {
               title: Text(nearbyPlaces[index].displayName.text),
               subtitle: Text('${LocaleKeys.details_rating.tr()}: ${nearbyPlaces[index].rating.toString()}'),
               onTap: () {
-                Navigator.push(context, BottomToTopPageRoute(page: const PlaceDetails()));
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return PlaceDetailsModal(context, nearbyPlaces[index]);
+                    });
               },
             ),
           );
         },
       );
     }
-  }
-
-  Widget _dataNotFound() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.error,
-            color: CColor.red,
-            size: 40,
-          ),
-          SB.h10,
-          Text(
-            LocaleKeys.fails_failedData.tr(),
-            style: TextStyle(color: CColor.red),
-          ),
-          SB.h10,
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                isLoading = true;
-                isError = false;
-              });
-              _initializeMap();
-            },
-            child: Text(LocaleKeys.fails_refreshButton.tr()),
-          ),
-        ],
-      ),
-    );
   }
 
   Future<void> _fetchNearbyPlaces(double rlat, double rlong) async {

@@ -47,6 +47,18 @@
 // }
 
 
+///////////////////////
+
+
+/*
+  Future<Position> _getCurrentLocation() async {
+      return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+    }
+*/
+
+
 
 
 ///////////////////////

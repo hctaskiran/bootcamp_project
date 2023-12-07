@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert' as convert;
 
 import 'package:bootcamp_project/constants/application.dart';
@@ -81,19 +83,4 @@ class LocationService {
     Position position = await Geolocator.getCurrentPosition();
     return position;
   }
-
-  // Future<void> getCurrentLocation() async {
-  //   try {
-  //     var position = await Geolocator.getCurrentPosition(
-  //       desiredAccuracy: LocationAccuracy.high,
-  //     );
-
-  //     setState(() {
-  //       lat = position.latitude;
-  //       long = position.longitude;
-  //     });
-  //   } catch (e) {
-  //     print('Exception: $e');
-  //   }
-  // }
 }

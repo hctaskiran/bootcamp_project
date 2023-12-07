@@ -23,6 +23,7 @@ class _NewMapState extends State<NewMap> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBar(title: const Text('Search on Map')),
       body: Stack(
         children: [
           FutureBuilder<Position>(
@@ -30,6 +31,7 @@ class _NewMapState extends State<NewMap> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return GoogleMap(
+                  mapType: MapType.normal,
                   myLocationButtonEnabled: false,
                   myLocationEnabled: true,
                   initialCameraPosition: CameraPosition(
@@ -68,14 +70,3 @@ class _NewMapState extends State<NewMap> {
     );
   }
 }
-
-
-
-
-/*
-  Future<Position> _getCurrentLocation() async {
-      return await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-      );
-    }
-*/
