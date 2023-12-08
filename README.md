@@ -1,16 +1,30 @@
-# bootcamp_project
+## Place ##
+- [ ] Add places to favorite, 
+- [x] Details about places such as ratings, addresses and phone numbers (both functional upon tapping on), photos, status etc.
+    - [x] Food places
+    - [x] Cafes
+    - [x] Stores / Pharmacies
+    - [x] Accomodation
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Widgets ##
+- [x] Multi-language Support
+    - [x] Turkish
+    - [x] English
+    - [x] Russian
+- [x] Bottom Navigation Bar
+    - [x] Food places
+    - [x] Cafe Places
+    - [x] Stores / Pharmacies
+    - [x] Accomodation places  
+    - [x] Google Map
+        - [x] Showing current location, also added 'Find Me' button,
+        - [ ] Search bar,
+        - [ ] Add markers,
+        - [ ] Giving directions
+- [x] Drawer
+    - [x] Animated app name as header 
+    - [x] Profile Page (Additional)
+        - [x] Adding profile photo
+        - [x] Editing info about user such as name and phone number.
+    - [x] Favorites Page
+    - [x] 'About App' button  
