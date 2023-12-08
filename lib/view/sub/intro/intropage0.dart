@@ -13,6 +13,7 @@ class IntroPage0 extends StatefulWidget {
 }
 
 class _IntroPage0State extends State<IntroPage0> {
+  late final String _anim = 'https://lottie.host/0cec8b88-f922-4684-8ff5-d84f4634610c/Le1FQ8mJwi.json';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +47,7 @@ class _IntroPage0State extends State<IntroPage0> {
             const SizedBox(
               height: 20,
             ),
-            Lottie.network('https://lottie.host/0cec8b88-f922-4684-8ff5-d84f4634610c/Le1FQ8mJwi.json',
-                frameRate: FrameRate(60))
+            Lottie.network(_anim)
           ],
         ),
       ),

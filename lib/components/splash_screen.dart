@@ -21,7 +21,7 @@ class SplashScreen extends StatelessWidget {
         ],
       ),
       splashIconSize: 350,
-      backgroundColor: CColor.orange,
+      backgroundColor: Colors.pink[100]!,
       nextScreen: const OnBoardingScreen(),
       duration: 6500,
       splashTransition: SplashTransition.scaleTransition,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class BottomToTopPageRoute extends PageRouteBuilder {
+class SlideAnim extends PageRouteBuilder {
   final Widget page;
 
-  BottomToTopPageRoute({required this.page})
+  SlideAnim({required this.page})
       : super(
           pageBuilder: (context, animation, secondaryAnimation) => page,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {

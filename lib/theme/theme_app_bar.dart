@@ -1,5 +1,6 @@
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomAppBarTheme extends AppBarTheme {
   CustomAppBarTheme({Key? key})
@@ -12,6 +13,7 @@ class CustomAppBarTheme extends AppBarTheme {
             ),
             elevation: 0,
             scrolledUnderElevation: 0,
+            systemOverlayStyle: const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
             backgroundColor: CColor.tr,
             iconTheme: IconThemeData(color: CColor.black),
             centerTitle: true,

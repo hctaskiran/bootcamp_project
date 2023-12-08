@@ -46,5 +46,6 @@
         "open": "Open",
         "closed": "Closed",
         "tempClosed": "Closed Temporarily"
-    }
+    },
+    "mapSearch": "Search on Map"
 }

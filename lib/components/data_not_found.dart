@@ -16,9 +16,12 @@ Widget DataNotFound(VoidCallback onPressed) {
         size: 40,
       ),
       SB.h10,
-      Text(
-        LocaleKeys.fails_failedData.tr(),
-        style: TextStyle(color: CColor.red),
+      Align(
+        alignment: Alignment.center,
+        child: Text(
+          LocaleKeys.fails_failedData.tr(),
+          style: TextStyle(color: CColor.red),
+        ),
       ),
       SB.h10,
       ElevatedButton(

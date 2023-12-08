@@ -41,5 +41,6 @@ abstract class  LocaleKeys {
   static const placeStatus_closed = 'placeStatus.closed';
   static const placeStatus_tempClosed = 'placeStatus.tempClosed';
   static const placeStatus = 'placeStatus';
+  static const mapSearch = 'mapSearch';
 
 }

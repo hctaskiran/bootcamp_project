@@ -1,14 +1,10 @@
-import 'package:bootcamp_project/components/data_not_found.dart';
-import 'package:bootcamp_project/components/shimmer.dart';
+import 'package:bootcamp_project/components/place_build.dart';
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:bootcamp_project/constants/sized_box.dart';
-import 'package:bootcamp_project/extension/photo_extension.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/model/place_models.dart';
 import 'package:bootcamp_project/services/location_services.dart';
 import 'package:bootcamp_project/services/place_services.dart';
-import 'package:bootcamp_project/view/sub/details.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -31,24 +27,6 @@ class _CafeViewState extends State<CafeView> {
   void initState() {
     super.initState();
     _initializeMap();
-  }
-
-  Future<void> _initializeMap() async {
-    try {
-      await LocationService().getCurrentLocation().then((value) {
-        setState(() {
-          lat = value.latitude;
-          long = value.longitude;
-        });
-        _fetchNearbyPlaces(lat, long);
-      });
-    } catch (e) {
-      print('Error initializing map: $e');
-      setState(() {
-        isLoading = false;
-        isError = true;
-      });
-    }
   }
 
   @override
@@ -75,74 +53,38 @@ class _CafeViewState extends State<CafeView> {
           ),
           SB.h15,
           Expanded(
-            child: _placeBuild(),
+            child: PlaceListBuild(
+                nearbyPlaces: nearbyPlaces,
+                isLoading: isLoading,
+                isError: isError,
+                onRetry: () {
+                  setState(() {
+                    isLoading = true;
+                    isError = false;
+                  });
+                  _initializeMap();
+                }),
           ),
         ],
       ),
     );
   }
 
-  Widget _placeBuild() {
-    if (isLoading) {
-      return const ShimmerLoad();
-    } else if (isError) {
-      return DataNotFound(() {
+  Future<void> _initializeMap() async {
+    try {
+      await LocationService().getCurrentLocation().then((value) {
         setState(() {
-          isLoading = true;
-          isError = false;
+          lat = value.latitude;
+          long = value.longitude;
         });
-        _initializeMap();
+        _fetchNearbyPlaces(lat, long);
       });
-    } else {
-      return ListView.builder(
-        itemCount: nearbyPlaces.length,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.only(bottom: 10),
-            child: ListTile(
-              tileColor: CColor.gry100,
-              leading: SizedBox(
-                width: 128,
-                height: 64,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: nearbyPlaces[index].photos.isNotEmpty
-                          ? CachedNetworkImage(
-                              fit: BoxFit.cover,
-                              imageUrl: PlaceImgExt(nearbyPlaces[index].photos[0].name).toImg(),
-                            )
-                          : Image.asset(notFound)),
-                ),
-              ),
-              title: Text(nearbyPlaces[index].displayName.text),
-              subtitle: nearbyPlaces[index].businessStatus == 'OPERATIONAL'
-                  ? Text(
-                      LocaleKeys.placeStatus_open.tr(),
-                      style: TextStyle(color: CColor.blue),
-                    )
-                  : nearbyPlaces[index].businessStatus == 'CLOSED_TEMPORARILY'
-                      ? Text(
-                          LocaleKeys.placeStatus_tempClosed.tr(),
-                          style: TextStyle(color: CColor.orange),
-                        )
-                      : Text(
-                          LocaleKeys.placeStatus_closed.tr(),
-                          style: TextStyle(color: CColor.red),
-                        ),
-              onTap: () {
-                showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (context) {
-                      return PlaceDetailsModal(context, nearbyPlaces[index]);
-                    });
-              },
-            ),
-          );
-        },
-      );
+    } catch (e) {
+      print('Error initializing map: $e');
+      setState(() {
+        isLoading = false;
+        isError = true;
+      });
     }
   }
 

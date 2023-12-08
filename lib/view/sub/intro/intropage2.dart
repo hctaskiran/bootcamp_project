@@ -5,8 +5,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class IntroPage2 extends StatelessWidget {
+class IntroPage2 extends StatefulWidget {
   const IntroPage2({super.key});
+
+  @override
+  State<IntroPage2> createState() => _IntroPage2State();
+}
+
+class _IntroPage2State extends State<IntroPage2> {
+  late String _anim = 'assets/img/animasyon1.json';
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +49,7 @@ class IntroPage2 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Lottie.asset('assets/img/animasyon1.json')
+            Lottie.asset(_anim)
           ],
         ),
       ),

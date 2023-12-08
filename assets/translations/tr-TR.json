@@ -46,5 +46,6 @@
         "open": "Açık",
         "closed": "Kapalı",
         "tempClosed": "Geçici Olarak Kapalı"
-    }
+    },
+    "mapSearch": "Haritada Ara"
 }

@@ -23,7 +23,7 @@ class _NewMapState extends State<NewMap> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: const Text('Search on Map')),
+      appBar: AppBar(title: Text(LocaleKeys.mapSearch.tr())),
       body: Stack(
         children: [
           FutureBuilder<Position>(

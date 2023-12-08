@@ -21,17 +21,13 @@ class CustomTextBox extends StatelessWidget {
               Text(
                 sectionName,
                 style: TextStyle(
-                    color: customColors().grey600color,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.underline),
+                    color: Colors.grey[600], fontWeight: FontWeight.bold, decoration: TextDecoration.underline),
               ),
-
-              // edit button
               IconButton(
                 onPressed: onPressed,
                 icon: Icon(
                   Icons.settings,
-                  color: customColors().grey500color,
+                  color: Colors.grey[600],
                 ),
               ),
             ],
@@ -41,10 +37,4 @@ class CustomTextBox extends StatelessWidget {
       ),
     );
   }
-}
-
-class customColors {
-  final grey200color = Colors.grey.shade200;
-  final grey500color = Colors.grey.shade500;
-  final grey600color = Colors.grey.shade600;
 }

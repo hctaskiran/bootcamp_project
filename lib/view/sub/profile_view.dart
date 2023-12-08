@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bootcamp_project/components/widgets/choose_pp.dart';
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:bootcamp_project/constants/sized_box.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
@@ -17,13 +18,12 @@ class ProfileView extends StatefulWidget {
 
 class _ProfileViewState extends State<ProfileView> {
   File? _image;
-  String _userName = "";
-  String _userPhoneNumber = "";
+  late String _userName = "";
+  late String _userPhoneNumber = "";
 
   @override
   void initState() {
     super.initState();
-    _loadImage();
     _loadUserInfo();
   }
 
@@ -42,16 +42,6 @@ class _ProfileViewState extends State<ProfileView> {
     setState(() {
       _image = null;
     });
-  }
-
-  Future<void> _loadImage() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? imagePath = prefs.getString('profile_image');
-    if (imagePath != null) {
-      setState(() {
-        _image = File(imagePath);
-      });
-    }
   }
 
   Future<void> _getImage(ImageSource source) async {
@@ -159,7 +149,7 @@ class _ProfileViewState extends State<ProfileView> {
           Center(
             child: InkWell(
               onTap: _openImagePicker,
-              child: _chooseProfilePhoto(),
+              child: ChoosePP(image: _image),
             ),
           ),
           SB.h20,
@@ -186,30 +176,6 @@ class _ProfileViewState extends State<ProfileView> {
           SB.h20,
         ],
       ),
-    );
-  }
-
-  Container _chooseProfilePhoto() {
-    return Container(
-      width: 150,
-      height: 150,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: CColor.gry,
-      ),
-      child: _image != null
-          ? ClipOval(
-              child: Image.file(
-                _image!,
-                width: 150,
-                height: 150,
-                fit: BoxFit.cover,
-              ),
-            )
-          : const Icon(
-              Icons.camera_alt,
-              color: Colors.white,
-            ),
     );
   }
 }

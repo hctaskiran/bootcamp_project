@@ -11,7 +11,6 @@ class CustomBNBTheme extends BottomNavigationBarThemeData {
           showUnselectedLabels: false,
           backgroundColor: CColor.bnbBg,
           type: BottomNavigationBarType.shifting,
-          // type: BottomNavigationBarType.fixed,
         );
 }
 

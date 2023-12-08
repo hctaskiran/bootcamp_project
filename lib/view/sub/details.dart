@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 Widget PlaceDetailsModal(BuildContext context, PlaceElement place) {
   String notFound = 'assets/img/not_found.png';
 
+
   return SizedBox(
     height: MediaQuery.of(context).size.height * 0.8,
     child: Padding(

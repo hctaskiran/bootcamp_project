@@ -5,8 +5,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class IntroPage3 extends StatelessWidget {
+class IntroPage3 extends StatefulWidget {
   const IntroPage3({super.key});
+
+  @override
+  State<IntroPage3> createState() => _IntroPage3State();
+}
+
+class _IntroPage3State extends State<IntroPage3> {
+  late final String _anim = 'https://lottie.host/1c16e794-f742-4fda-a060-fa5f435f0a5b/BiVMq4B3qY.json';
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +49,7 @@ class IntroPage3 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Lottie.network('https://lottie.host/1c16e794-f742-4fda-a060-fa5f435f0a5b/BiVMq4B3qY.json')
+            Lottie.network(_anim)
           ],
         ),
       ),

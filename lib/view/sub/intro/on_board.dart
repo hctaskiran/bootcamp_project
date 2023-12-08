@@ -1,7 +1,7 @@
 import 'package:bootcamp_project/components/bottom_nav_bar.dart';
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
-import 'package:bootcamp_project/theme/details_page_anim.dart';
+import 'package:bootcamp_project/theme/animations/slide_anim.dart';
 import 'package:bootcamp_project/view/sub/intro/intropage0.dart';
 import 'package:bootcamp_project/view/sub/intro/intropage1.dart';
 import 'package:bootcamp_project/view/sub/intro/intropage2.dart';
@@ -26,12 +26,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   void initState() {
     super.initState();
-    // checkOnboardingStatus();
+    checkOnboardingStatus();
   }
 
   Future<void> checkOnboardingStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool onboardingCompleted = prefs.getBool('onboardingCompleted') ?? false;
+    late bool onboardingCompleted = prefs.getBool('onboardingCompleted') ?? false;
 
     if (onboardingCompleted) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: ((context) => const NavBarController())));
@@ -66,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               onLastPage
                   ? GestureDetector(
                       onTap: () {
-                        Navigator.push(context, BottomToTopPageRoute(page: const NavBarController()));
+                        Navigator.push(context, SlideAnim(page: const NavBarController()));
                       },
                       child: Container(
                           padding: const EdgeInsets.all(10),
