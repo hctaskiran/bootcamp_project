@@ -5,12 +5,12 @@
     - [x] Cafes
     - [x] Stores / Pharmacies
     - [x] Accomodation
+
+## Widgets ##
 - [x] Multi-language Support
     - [x] Turkish
     - [x] English
     - [x] Russian
-
-## Widgets ##
 - [x] Bottom Navigation Bar
     - [x] Food places
     - [x] Cafe Places
