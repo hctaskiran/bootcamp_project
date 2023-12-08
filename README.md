@@ -1,6 +1,7 @@
 ## Main ##
 - [x] Animated splash screen with an animated text of the app below, which is the name of the app
 - [x] On boarding screen, which is also known as Introduction screen to teach the basics of the app,
+- [x] Smooth animated transitions between pages(Fade, Slide etc.) 
 ## Places ##
 - [ ] Add places to favorite, 
 - [x] Details about places such as ratings, addresses and phone numbers (both functional upon tapping on), photos, status etc.
