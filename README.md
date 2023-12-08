@@ -31,5 +31,6 @@
         - [x] Adding profile photo from gallery
         - [x] Adding profile photo via camera 
         - [x] Editing info about user such as name and phone number.
+        - [x] Saving the datas above via SharedPreferences 
     - [x] Favorites Page,
     - [x] 'About App' button, which basically explains the goal of the app
