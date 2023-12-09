@@ -22,7 +22,7 @@
     - [x] Accomodation places  
     - [x] Google Map
         - [x] Showing current location, also added 'Find Me' button,
-        - [ ] Search bar,
+        - [x] Search bar,
         - [ ] Add markers,
         - [ ] Giving directions
 - [x] Drawer
