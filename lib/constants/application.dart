@@ -5,7 +5,6 @@ import 'package:googleapis_auth/auth_io.dart';
 class Application {
   // api
   static String apiKey = "YOUR_API_KEY_HERE";
-  // static String apiKey = " ";
 
   static final PlacesApi placesApi = PlacesApi(client);
 
