@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bootcamp_project/constants/colors.dart';
-import 'package:bootcamp_project/view/sub/intro/on_board.dart';
+import 'package:bootcamp_project/view/introduction/on_board.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {

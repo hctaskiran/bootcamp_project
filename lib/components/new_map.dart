@@ -1,7 +1,8 @@
 // Import necessary packages and libraries
 import 'dart:async';
 
-import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
+import 'package:bootcamp_project/constants/colors.dart';
+import 'package:bootcamp_project/core/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/services/location_services.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class NewMap extends StatefulWidget {
 class _NewMapState extends State<NewMap> {
   final Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController _locationController;
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,31 @@ class _NewMapState extends State<NewMap> {
                 return const Center(child: CircularProgressIndicator());
               }
             },
+          ),
+          Positioned(
+            top: 10,
+            left: 10,
+            right: 10,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextField(
+                style: TextStyle(color: CColor.black),
+                controller: _searchController,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                  labelText: LocaleKeys.mapSearch.tr(),
+                  labelStyle: TextStyle(color: CColor.black),
+                  isDense: true,
+                  contentPadding: const EdgeInsets.all(8),
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.search),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+            ),
           ),
           Positioned(
             bottom: 70,

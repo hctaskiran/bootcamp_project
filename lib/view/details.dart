@@ -1,13 +1,12 @@
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:bootcamp_project/constants/sized_box.dart';
-import 'package:bootcamp_project/extension/photo_extension.dart';
+import 'package:bootcamp_project/core/extension/photo_extension.dart';
 import 'package:bootcamp_project/model/place_models.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 Widget PlaceDetailsModal(BuildContext context, PlaceElement place) {
   String notFound = 'assets/img/not_found.png';
-
 
   return SizedBox(
     height: MediaQuery.of(context).size.height * 0.8,

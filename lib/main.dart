@@ -1,7 +1,7 @@
 import 'package:bootcamp_project/components/splash_screen.dart';
 import 'package:bootcamp_project/constants/application.dart';
 import 'package:bootcamp_project/constants/colors.dart';
-import 'package:bootcamp_project/enum/language_enum.dart';
+import 'package:bootcamp_project/core/enum/language_enum.dart';
 import 'package:bootcamp_project/theme/theme_app_bar.dart';
 import 'package:bootcamp_project/theme/theme_bottom_navigation_bar.dart';
 import 'package:easy_localization/easy_localization.dart';

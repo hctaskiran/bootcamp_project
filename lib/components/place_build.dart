@@ -1,15 +1,15 @@
 // place_list_widget.dart
 
-import 'package:flutter/material.dart';
-import 'package:bootcamp_project/components/shimmer.dart';
 import 'package:bootcamp_project/components/data_not_found.dart';
+import 'package:bootcamp_project/components/shimmer.dart';
 import 'package:bootcamp_project/constants/colors.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:bootcamp_project/extension/photo_extension.dart';
+import 'package:bootcamp_project/core/extension/photo_extension.dart';
+import 'package:bootcamp_project/core/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/model/place_models.dart';
-import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
-import 'package:bootcamp_project/view/sub/details.dart';
+import 'package:bootcamp_project/view/details.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
 
 class PlaceListBuild extends StatelessWidget {
   final List<PlaceElement> nearbyPlaces;
@@ -18,6 +18,7 @@ class PlaceListBuild extends StatelessWidget {
   final Function onRetry;
 
   const PlaceListBuild({
+    super.key,
     required this.nearbyPlaces,
     required this.isLoading,
     required this.isError,

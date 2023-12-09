@@ -3,7 +3,7 @@
 import 'package:bootcamp_project/components/place_build.dart';
 import 'package:bootcamp_project/constants/colors.dart';
 import 'package:bootcamp_project/constants/sized_box.dart';
-import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
+import 'package:bootcamp_project/core/init/lang/locale_keys.g.dart';
 import 'package:bootcamp_project/model/place_models.dart';
 import 'package:bootcamp_project/services/location_services.dart';
 import 'package:bootcamp_project/services/place_services.dart';

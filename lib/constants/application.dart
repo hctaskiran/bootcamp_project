@@ -1,10 +1,11 @@
-import 'package:bootcamp_project/enum/language_enum.dart';
+import 'package:bootcamp_project/core/enum/language_enum.dart';
 import 'package:googleapis/places/v1.dart';
 import 'package:googleapis_auth/auth_io.dart';
 
 class Application {
   // api
-  static String apiKey = "AIzaSyAxy81E8S_k6JqdLkXz3Z67rTJw4BcZ9RQ";
+  static String apiKey = "YOUR_API_KEY_HERE";
+  // static String apiKey = " ";
 
   static final PlacesApi placesApi = PlacesApi(client);
 

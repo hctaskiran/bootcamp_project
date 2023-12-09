@@ -41,6 +41,7 @@ class PlaceElement {
 
   List<Photo> photos;
 
+
   PlaceElement({
     required this.types,
     required this.nationalPhoneNumber,

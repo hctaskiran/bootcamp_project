@@ -47,5 +47,6 @@
         "closed": "Kapalı",
         "tempClosed": "Geçici Olarak Kapalı"
     },
-    "mapSearch": "Haritada Ara"
+    "mapSearch": "Haritada Ara",
+    "search": "Ara"
 }

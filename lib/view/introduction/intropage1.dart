@@ -1,19 +1,20 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:bootcamp_project/constants/colors.dart';
-import 'package:bootcamp_project/init/lang/locale_keys.g.dart';
+import 'package:bootcamp_project/core/init/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class IntroPage0 extends StatefulWidget {
-  const IntroPage0({super.key});
+class IntroPage1 extends StatefulWidget {
+  const IntroPage1({super.key});
 
   @override
-  State<IntroPage0> createState() => _IntroPage0State();
+  State<IntroPage1> createState() => _IntroPage1State();
 }
 
-class _IntroPage0State extends State<IntroPage0> {
-  late final String _anim = 'https://lottie.host/0cec8b88-f922-4684-8ff5-d84f4634610c/Le1FQ8mJwi.json';
+class _IntroPage1State extends State<IntroPage1> {
+  late final String _anim = 'https://lottie.host/8cf4e7e1-ca15-4f8e-95db-c38da46fde41/ZyR2nfUdkx.json';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,21 +23,24 @@ class _IntroPage0State extends State<IntroPage0> {
         child: Column(
           children: [
             const SizedBox(height: 200),
-            Align(
-              alignment: Alignment.center,
+            Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16),
                     child: AnimatedTextKit(
-                      totalRepeatCount: 1,
                       pause: const Duration(seconds: 30),
+                      totalRepeatCount: 1,
                       animatedTexts: [
                         TyperAnimatedText(
-                          LocaleKeys.intro_page1.tr(),
+                          LocaleKeys.intro_page2.tr(),
                           textAlign: TextAlign.center,
-                          textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: CColor.black),
+                          textStyle: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: CColor.black,
+                          ),
                         ),
                       ],
                     ),
@@ -44,9 +48,7 @@ class _IntroPage0State extends State<IntroPage0> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Lottie.network(_anim)
           ],
         ),

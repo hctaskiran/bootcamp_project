@@ -1,5 +1,5 @@
 String baseURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=";
-String apiKey = "AIzaSyAxy81E8S_k6JqdLkXz3Z67rTJw4BcZ9RQ";
+String apiKey = "YOUR_API_KEY_HERE";
 
 extension PlaceImgExt on String {
   String toImg() {
